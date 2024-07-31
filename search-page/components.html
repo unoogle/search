@@ -1,0 +1,78 @@
+<native-top-bar>
+    <div id="top-bar">
+        <a href="https://github.com/unoogle/search" target="_blank">About</a>
+    </div>
+</native-top-bar>
+
+<native-logo-container>
+    <div id="logo-container">
+        <img src="/CDN/images/Unoogle.png" width="350" style="display: block; margin: auto; filter: drop-shadow(0 0 0.21em rgba(255, 255, 255, 0.8));">
+        <div style="margin-top: 8px; font-size: 1.3em;">The fully open source search engine</div>
+    </div>
+</native-logo-container>
+
+<native-search-container>
+    <div id="search-container">
+        <img src="/CDN/images/magnifying-glass.svg" style="transform: translate(1px, 1px);">
+        <input id="search-input" type="text" autocomplete="off">
+    </div>
+
+    <script type="methods">
+        highlight() {
+            this.tempField = 1;
+            this.css({
+                backgroundColor: "rgb(49, 49, 59)",
+                border: "2px solid rgb(49, 49, 59)",
+                boxShadow: "0px 0px 5px black"
+            });
+        }
+
+        unhighlight() {
+            this.css({
+                borderBottomLeftRadius: "20px",
+                borderBottomRightRadius: "20px",
+                backgroundColor: "transparent",
+                border: "2px solid rgb(95, 100, 100)",
+                boxShadow: "none"
+            });
+        }
+    </script>
+</native-search-container>
+
+<native-suggestions-container>
+    <div id="suggestions-container" style="display: none;">
+        <!-- seperation line -->
+        <div style="width: 90%; height: 1px; margin: auto; background-color: rgb(130, 130, 130); margin-bottom: 5px;"></div>
+        <!-- suggestions box -->
+        <div id="suggestions"></div>
+    </div>
+</native-suggestions-container>
+
+<native-bottom-bar>
+    <div id="bottom-bar">
+        <div style="max-width: 760px; margin: auto; padding: 12px;">
+            Even privacy respecting searches such as DuckDuckGo and Brave keep their search engines proprietary. Unoogle Search is a fully open source search engine. Even our search index is publicly available!
+        </div>
+    </div>
+</native-bottom-bar>
+
+<native-suggestion>
+    <div class="suggestion" style="display: flex;">
+        <img src="/CDN/images/magnifying-glass.svg" height="35" style="display: block; margin-left: -6px;">
+        <div>
+            <div class="label">\{q}</div>
+            <div class="description">\{desc}</div>
+        </div>
+    </div>
+</native-suggestion>
+
+<default>
+    <top-bar/>
+    <logo-container/>
+    
+    <br><br>
+
+    <search-container/>
+    <suggestions-container/>
+    <bottom-bar/>
+</default>

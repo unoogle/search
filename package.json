@@ -1,0 +1,16 @@
+{
+  "name": "search",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "bun run server.ts",
+    "lint": "npx tsc --noEmit server.ts"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.1",
+    "typescript": "^5.4.5"
+  }
+}

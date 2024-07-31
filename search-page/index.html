@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Unoogle</title>
+    <link rel="icon" type="image/x-icon" href="/CDN/images/U.png">
+
+    <link rel="stylesheet" href="/CDN/search-page/style.css">
+
+    <script src="/CDN/lib/barbequery.js"></script>
+</head>
+<body>
+
+    <script>
+        $.getText("/CDN/search-page/components.html")
+            .then(txt => {
+                $.createComponents(txt)
+                $.render()
+                $.loadScript("/CDN/search-page/index.js")
+            })
+    </script>
+
+</body>
+</html>
