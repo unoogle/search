@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>Unoogle</title>
-    <link rel="icon" type="image/x-icon" href="/CDN/images/U.png">
+    <link rel="icon" type="image/x-icon" href="/CDN/frontend/images/U.png">
 
-    <link rel="stylesheet" href="/CDN/search-page/style.css">
+    <link rel="stylesheet" href="/CDN/frontend/search-page/style.css">
 
     <script src="/CDN/lib/barbequery.js"></script>
 </head>
 <body>
 
     <script>
-        $.getText("/CDN/search-page/components.html")
+        $.getText("/CDN/frontend/search-page/components.html")
             .then(txt => {
                 $.createComponents(txt)
                 $.render()
-                $.loadScript("/CDN/search-page/index.js")
+                $.loadScript("/CDN/frontend/search-page/index.js")
             })
     </script>
 

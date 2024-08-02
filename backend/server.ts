@@ -30,7 +30,7 @@ async function getNormalizedSuggestions(query: string) {
             }
         });
         const braveJSON: Array<string | Array<BraveSuggestion>> = await braveRes.json();
-        console.log(braveJSON)
+        // console.log(braveJSON)
 
         if (braveJSON && Array.isArray(braveJSON[1])) {
             for (let i = 0; i < braveJSON[1].length; i++) {
@@ -50,10 +50,12 @@ async function getNormalizedSuggestions(query: string) {
     return outArr;
 }
 
+const SEARCH_PAGE_PATH = "../";
+
 const projectTree = {
     "/": (path: string, out: Http2ServerResponse, data: object) => {
         out.writeHead(200, { "Content-Type": "text/html" });
-        out.write(bbq.readTemplatedHTML("./search-page/index.html"));
+        out.write(bbq.readTemplatedHTML(`${SEARCH_PAGE_PATH}/frontend/search-page/index.html`));
     },
     "/API/": {
         ":ACTION": (path: string, out: Http2ServerResponse, data: object) => {
@@ -81,7 +83,7 @@ const projectTree = {
     },
     "/CDN/": (path: string, out: Http2ServerResponse) => {
         let fileExt: string = path.split(".").reverse()[0];
-        let filePath: string = path;
+        let filePath: string = SEARCH_PAGE_PATH + path;
         
         if (fileExt !== "html" && fileExt !== "css" && fileExt !== "js") {
             out.setHeader("Cache-Control", "public, max-age=" + (60 * 60 * 24));

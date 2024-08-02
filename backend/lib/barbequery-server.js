@@ -1,10 +1,20 @@
+/**
+
+    Barbequery - a lightweight easy to use DOM library
+    All code written by Vexcess available under the MIT license (https://opensource.org/license/mit/)
+
+    TODO:
+        - implement logical query operators
+        - implement server side rendering???
+**/
+
 const fs = require("fs");
 const crypto = require("node:crypto");
 const Crypto_AES = require("crypto-js/aes");
 const Crypto_SHA256 = require("crypto-js/sha256");
 const Crypto_Base64 = require("crypto-js/enc-base64");
 const Crypto_Utf8 = require("crypto-js/enc-utf8");
-const $ = require("./barbequery");
+const $ = require("../../lib/barbequery");
 
 const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "0123456789";

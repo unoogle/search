@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "bun run server.ts",
+    "start": "cd backend; bun run server.ts",
     "lint": "npx tsc --noEmit server.ts"
   },
   "dependencies": {

@@ -69,7 +69,6 @@ function unsimilarity(toks1, toks2, d=0) {
 
 function hideSuggestions() {
     searchContainer.unhighlight();
-
     suggestionsContainer.css({
         display: "none"
     });
@@ -132,25 +131,17 @@ function checkToUpdateSuggestions() {
 
     if (document.activeElement === searchInput.native && query.trim().length > 0) {
         // display cached suggestions
-        updateSuggestions();
+        if (suggestionsContainer.style.display === "none") {
+            updateSuggestions();
+        }
 
         // changed + ratelimit + only request if not cached
         if (query !== lastQuery && now - lastSuggest > 0.5 && !suggestionsCache[query]) {
             fetch("/API/suggest?q=" + encodeURIComponent(query))
-                .then(async res => {
-                    console.log("res", res)
-                    await wait(100);
-                    try {
-                        return res.json()
-                    } catch (err) {
-                        console.log(err)
-                        return null;
-                    }
-                })
+                .then(res => res.json())
                 .then(json => {
-                    console.log(json)
+                    // console.log(json)
                     if (Array.isArray(json)) {
-                        
                         suggestionsCache[json[0]] = json[1];
                         updateSuggestions();
                     }
